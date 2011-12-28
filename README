@@ -1,0 +1,14 @@
+Gemini Sudoku
+
+A rich interface to a sudoku puzzle that allows one or more people to
+collaborate and solve a sudoku puzzle together.
+
+Primary Goals
+1. Use BDD to ensure complete test coverage.
+2. Create a rich interface with live updating.
+3. Implement an undo feature.
+4. Defer implementation details as long as possible to retain flexibility.
+
+Secondary Goals
+1. Write a program to help solve the puzzle.
+
