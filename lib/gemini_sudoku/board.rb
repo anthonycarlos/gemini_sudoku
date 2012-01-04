@@ -3,7 +3,7 @@ class Board
   def initialize(size=9)
     @size = size
     @rows = (1..size).collect do |i|
-      (1..size).collect {|j| Cell.new(i, j)}
+      Row.new(i, size)
     end
   end
 
@@ -12,14 +12,22 @@ class Board
   end
 
   def cell(x,y)
-    @rows[x][y]
+    row(y).column(x)
   end
 
   def cell=(cell)
-    @rows[cell.x][cell.y] = cell
+    row(cell.y).column = cell
   end
 
   def cells
-    @rows.flatten
+    @rows.map(&:cells).flatten
+  end
+
+  def row(index)
+    @rows[index - 1]
+  end
+
+  def col(index)
+    @rows.collect{|row| row.column(index)}
   end
 end

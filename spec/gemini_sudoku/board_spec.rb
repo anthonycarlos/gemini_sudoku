@@ -58,11 +58,17 @@ describe Board do
   end
 
   describe "#row(n)" do
-    it "returns the nth row"
+    it "returns the nth row" do
+      b = Board.new
+      b.row(4).cells.all?{ |cell| cell.x.should == 4 }
+    end
   end
 
   describe "#col(n)" do
-    it "returns the nth column"
+    it "returns the nth column" do
+      b = Board.new
+      b.col(4).all?{ |cell| cell.y.should == 4 }
+    end
   end
 
 end
