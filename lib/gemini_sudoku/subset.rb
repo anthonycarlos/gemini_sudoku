@@ -1,4 +1,5 @@
 class Subset
+  attr_reader :cells
 
   def initialize(cells)
     @cells = cells
