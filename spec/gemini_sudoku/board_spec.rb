@@ -1,6 +1,22 @@
 require 'spec_helper'
 
 describe Board do
+  let(:c1) { Cell.new(1,1,1) }
+  let(:c2) { Cell.new(2,1,2) }
+  let(:c3) { Cell.new(3,1,3) }
+  let(:c4) { Cell.new(1,2,4) }
+  let(:c5) { Cell.new(2,2,5) }
+  let(:c6) { Cell.new(3,2,6) }
+  let(:c7) { Cell.new(1,3,7) }
+  let(:c8) { Cell.new(2,3,8) }
+  let(:c9) { Cell.new(3,3,9) }
+  let(:cells) { [c1, c2, c3, c4, c5, c6, c7, c8, c9] }
+  let(:board) do
+    b = Board.new(3)
+    cells.each {|c| b.cell = c }
+    b
+  end
+
   describe "#new" do
     context "with no parameters" do
       it "creates a square board 9 cells on a side" do
@@ -58,11 +74,19 @@ describe Board do
   end
 
   describe "#row(n)" do
-    it "returns the nth row"
+    it "returns the nth row" do
+      board.row(1).should == Row.new([c1, c2, c3])
+      board.row(2).should == Row.new([c4, c5, c6])
+      board.row(3).should == Row.new([c7, c8, c9])
+    end
   end
 
   describe "#col(n)" do
-    it "returns the nth column"
+    it "returns the nth column" do
+      board.col(1).should == Column.new([c1, c4, c7])
+      board.col(2).should == Column.new([c2, c5, c8])
+      board.col(3).should == Column.new([c3, c6, c9])
+    end
   end
 
 end

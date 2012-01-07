@@ -9,4 +9,12 @@ class Cell
     @value = value
   end
 
+  def to_s
+    "#<Cell [#{x},#{y}]=#{value}>"
+  end
+
+  def ==(c)
+    @x == c.x && @y == c.y && @value == c.value
+  end
+
 end
