@@ -20,12 +20,17 @@ describe Cell do
     end
   end
 
-  describe "#row" do
-    it "returns an array of all the cells in this cell's row"
-  end
-
-  describe "#col" do
-    it "returns an array of all the cells in this cell's column"
+  describe "#==" do
+    context "when x, y, and value are ==" do
+      it "returns true" do
+        c.should == Cell.new(1,2,3)
+      end
+    end
+    context "when any attribute is not ==" do
+      it "returns false" do
+        c.should_not == Cell.new(1,3,3)
+      end
+    end
   end
 
 end
