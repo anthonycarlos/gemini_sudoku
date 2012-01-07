@@ -9,4 +9,8 @@ class Cell
     @value = value
   end
 
+  def to_s
+    "#<Cell @x=#{x},@y=#{y},@value=#{value}>"
+  end
+
 end
